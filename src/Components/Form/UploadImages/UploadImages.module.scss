@@ -1,0 +1,85 @@
+.root {
+  p {
+    color: #303940;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 23px;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      margin-bottom: 12;
+    }
+  }
+  .rowImages {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .inputWrapper {
+      border-radius: 6px;
+      .uploadImageInput {
+        display: none;
+      }
+      label {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      width: 80px;
+      height: 80px;
+
+      @media (max-width: 768px) {
+        width: 76px;
+        height: 76px;
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed rgba(0, 0, 0, 0.3);
+    }
+    .showImage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      width: 80px;
+      height: 80px;
+
+      @media (max-width: 768px) {
+        width: 76px;
+        height: 76px;
+      }
+
+      position: relative;
+      span {
+        cursor: pointer;
+        position: absolute;
+        top: -7px;
+        right: -7px;
+      }
+      .imgWrapper {
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.2)
+        );
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 6px;
+      }
+    }
+  }
+}

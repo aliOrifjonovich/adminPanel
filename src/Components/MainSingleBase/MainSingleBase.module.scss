@@ -1,0 +1,54 @@
+@import "/src/styles/mixins.scss";
+
+.base {
+  z-index: 0 !important;
+  transition: margin-left 0.9s ease;
+  transition: max-width 0.9s ease;
+  background-color: #fff !important;
+
+  &__body {
+    width: 300px;
+    border-right: 1px solid var(--border-color);
+
+    &__header {
+      height: 60px;
+      @include element-center;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--secondary-color);
+      }
+    }
+
+    &__content {
+      height: calc(100vh - 60px);
+      @include direction-column;
+      gap: 10px;
+      position: relative;
+
+      &__inputs {
+        @include direction-column;
+        gap: 10px;
+        padding: 20px 10px;
+        height: 100%;
+        overflow-y: scroll;
+        margin-bottom: 100px;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      &__buttons {
+        width: 100%;
+        @include direction-column;
+        position: absolute;
+        bottom: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+}

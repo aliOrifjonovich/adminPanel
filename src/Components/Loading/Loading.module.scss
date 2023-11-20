@@ -1,0 +1,6 @@
+@import "/src/styles/mixins.scss";
+
+.bigLoading {
+  @include element-center;
+  height: 100%;
+}

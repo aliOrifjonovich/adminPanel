@@ -1,0 +1,31 @@
+@mixin align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin justify-content-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin element-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin backgroundOptimize {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,10 @@
+.labelBox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  label {
+    font-size: 14px;
+    line-height: 24px;
+    color: #252c32;
+  }
+}
