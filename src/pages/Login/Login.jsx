@@ -26,7 +26,7 @@ const Login = () => {
 
   const { mutate: authMutate } = UseAuth({
     onSuccess: (res) => {
-      console.log('res', res)
+      console.log("res", res);
       // localStorage.setItem("first_name", res.first_name);
       // localStorage.setItem("last_name", res.last_name);
       // localStorage.setItem("token", res.token);
@@ -38,7 +38,7 @@ const Login = () => {
       // window.location.reload();
     },
     onError: (err) => {
-      console.log('err', err)
+      console.log("err", err);
       // dispatch(showAlert(err.data?.message, "error"));
     },
   });

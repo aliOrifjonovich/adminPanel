@@ -2,7 +2,7 @@ import { useMutation } from "react-query";
 import { requestUnionAuth } from "./http-client";
 
 const authService = {
-  register: (data) => requestUnionAuth.post(`/auth/register`, data),
+  register: (data) => requestUnionAuth.post(`/auth/login`, data),
 };
 
 export const UseAuth = (mutationSettings) => {
