@@ -100,24 +100,6 @@ export const Routes = () =>
       path: "/login",
       element: hasToken ? <Navigate to="/main" replace /> : <Login />,
     },
-    // {
-    //   path: "/blog",
-    //   element: <Blog />,
-    // },
-    // {
-    //   path: "/products",
-    //   element: <ProductsLayout />,
-    //   children: [
-    //     {
-    //       index: true,
-    //       element: <Products />,
-    //     },
-    //     {
-    //       path: ":id",
-    //       element: <ProductsById />,
-    //     },
-    //   ],
-    // },
     {
       path: "*",
       element: (

@@ -32,7 +32,6 @@
     "react-scripts": "^5.0.1",
     "react-select": "^5.7.4",
     "react-smooth-dnd": "^0.11.1",
-    "react-yandex-maps": "^4.6.0",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "sass": "^1.66.1",

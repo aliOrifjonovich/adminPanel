@@ -4,14 +4,11 @@ import { useForm } from "react-hook-form";
 import Label from "Components/Label/Label";
 import Input from "Components/Form/Input/Input";
 import MainButton from "Components/MainButton/MainButton";
-import { useDispatch } from "react-redux";
-import { showAlert } from "redux/alert/alert.thunk";
 import { useNavigate } from "react-router-dom";
 import { UseAuth } from "services/auth.service";
 
 const Login = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const {
     control,
     handleSubmit,
@@ -26,20 +23,10 @@ const Login = () => {
 
   const { mutate: authMutate } = UseAuth({
     onSuccess: (res) => {
-      console.log("res", res);
-      // localStorage.setItem("first_name", res.first_name);
-      // localStorage.setItem("last_name", res.last_name);
-      // localStorage.setItem("token", res.token);
-      // localStorage.setItem("user_id", res.user_id);
-      // localStorage.setItem("username", res.username);
-      // dispatch(showAlert("You successfully entered", "success"));
-      // reset();
-      // navigate("/main");
-      // window.location.reload();
-    },
-    onError: (err) => {
-      console.log("err", err);
-      // dispatch(showAlert(err.data?.message, "error"));
+      localStorage.setItem("token", res.accessToken);
+      reset();
+      navigate("/main");
+      window.location.reload();
     },
   });
 
