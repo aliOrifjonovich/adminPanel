@@ -4,7 +4,7 @@ import styles from "./UploadImages.module.scss";
 import { CircularProgress } from "@mui/material";
 import { Controller, useWatch } from "react-hook-form";
 import { PlusIcon, RemoveIcon } from "helpers/Icons/Icons";
-import { UseUpload } from "services/upload.service";
+// import { UseUpload } from "services/upload.service";
 
 const UploadImages = ({
   control,
@@ -29,9 +29,9 @@ const UploadImages = ({
     );
   };
 
-  const { mutateAsync, isLoading } = UseUpload({
-    onSuccess: () => {},
-  });
+  // const { mutateAsync, isLoading } = UseUpload({
+  //   onSuccess: () => {},
+  // });
 
   return (
     <div className={styles.root}>
@@ -63,15 +63,15 @@ const UploadImages = ({
                       const file = event.target.files[0];
                       const data = new FormData();
                       data.append("file", file);
-                      mutateAsync(data)
-                        .then((res) => {
-                          photos
-                            ? onChange([...photos, res?.filename])
-                            : onChange([res?.filename]);
-                        })
-                        .catch((err) => {
-                          console.log("err", err);
-                        });
+                      // mutateAsync(data)
+                      //   .then((res) => {
+                      //     photos
+                      //       ? onChange([...photos, res?.filename])
+                      //       : onChange([res?.filename]);
+                      //   })
+                      //   .catch((err) => {
+                      //     console.log("err", err);
+                      //   });
                     }}
                     className={styles.uploadImageInput}
                     {...props}

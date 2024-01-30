@@ -4,7 +4,6 @@ import MainLayout from "Layouts/MainLayout/MainLayout";
 import Main from "pages/Main/Main";
 import MainIndex from "pages/MainIndex/MainIndex";
 import MainSingle from "pages/MainSingle/MainSingle";
-import SettingsLayout from "Layouts/SettingLayout/SettingLayout";
 import Protected from "helpers/Protected/Protected";
 import Login from "pages/Login/Login";
 import SettingLayout from "Layouts/SettingLayout/SettingLayout";

@@ -1,49 +1,33 @@
 import React from "react";
 import styles from "./Login.module.scss";
-import { useForm } from "react-hook-form";
 import Label from "Components/Label/Label";
 import Input from "Components/Form/Input/Input";
 import MainButton from "Components/MainButton/MainButton";
-<<<<<<< HEAD
+import { useForm } from "react-hook-form";
 
 const Login = () => {
-=======
-import { useNavigate } from "react-router-dom";
-import { UseAuth } from "services/auth.service";
-
-const Login = () => {
-  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      username: "",
-      password: "",
-    },
-  });
-
-  const { mutate: authMutate } = UseAuth({
-    onSuccess: (res) => {
-      localStorage.setItem("token", res.accessToken);
-      reset();
-      navigate("/main");
-      window.location.reload();
-    },
+    defaultValues: {},
   });
 
   const onSubmit = (data) => {
-    authMutate(data);
+    if (data.username === "alisher" && data.password === "alisher") {
+      localStorage.setItem("token", true);
+      window.location.reload();
+    }
   };
->>>>>>> refs/remotes/origin/main
+
   return (
     <div className={styles.login}>
       <div className={styles.login__image} />
       <div className={styles.login__form}>
         <form
           className={styles.login__form__content}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <Label label="Name*">
             <Input
@@ -54,6 +38,11 @@ const Login = () => {
                 required: {
                   value: true,
                   message: "required",
+                },
+                validate: {
+                  validateInput(username) {
+                    if (username !== "alisher") return "Invalid username";
+                  },
                 },
               }}
               errors={errors}
@@ -68,6 +57,11 @@ const Login = () => {
                 required: {
                   value: true,
                   message: "required",
+                },
+                validate: {
+                  validateInput(password) {
+                    if (password !== "alisher") return "Invalid password";
+                  },
                 },
               }}
               typePassword

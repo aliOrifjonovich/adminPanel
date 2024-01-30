@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import styles from "./MainSingleRelations.module.scss";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { UseDeleteMain, UseGetMain } from "services/main.service";
 import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "redux/alert/alert.thunk";
 import { queryClient } from "services/http-client";
@@ -56,31 +55,31 @@ const useMainSingleRelations = () => {
     }
   }, []);
 
-  const { data, isError, isFetching, isLoading, refetch } = UseGetMain({
-    queryParams: {
-      offset: pagination.pageIndex * pagination.pageSize,
-      limit: pagination.pageSize,
-      [`${tab_name}_id`]: searchParams.get("relation") && id,
-    },
-    tab_name: searchParams.get("relation") || tab_name,
-  });
+  // const { data, isError, isFetching, isLoading, refetch } = UseGetMain({
+  //   queryParams: {
+  //     offset: pagination.pageIndex * pagination.pageSize,
+  //     limit: pagination.pageSize,
+  //     [`${tab_name}_id`]: searchParams.get("relation") && id,
+  //   },
+  //   tab_name: searchParams.get("relation") || tab_name,
+  // });
 
-  const { mutateAsync: mainDeleteMutate } = UseDeleteMain({
-    onSuccess: (res) => {
-      dispatch(showAlert("Successfully deleted", "success"));
-      queryClient.refetchQueries("GET_MAIN");
-    },
-    onError: (err) => {},
-  });
+  // const { mutateAsync: mainDeleteMutate } = UseDeleteMain({
+  //   onSuccess: (res) => {
+  //     dispatch(showAlert("Successfully deleted", "success"));
+  //     queryClient.refetchQueries("GET_MAIN");
+  //   },
+  //   onError: (err) => {},
+  // });
 
   const handleDeleteRow = (row) => {
-    mainDeleteMutate({ id: row.original.id, tab_name }).then((res) => {
-      if (row.original.id === id && data?.users?.[0]?.id) {
-        navigate(`/main/${tab_name}/${data?.users?.[0]?.id}`);
-      } else {
-        navigate(`/main/${tab_name}`);
-      }
-    });
+    // mainDeleteMutate({ id: row.original.id, tab_name }).then((res) => {
+    //   if (row.original.id === id && data?.users?.[0]?.id) {
+    //     navigate(`/main/${tab_name}/${data?.users?.[0]?.id}`);
+    //   } else {
+    //     navigate(`/main/${tab_name}`);
+    //   }
+    // });
   };
 
   const handlePaginationChange = (item) => {
@@ -90,7 +89,7 @@ const useMainSingleRelations = () => {
     id,
     tab_name,
     navigate,
-    data,
+    data: [],
     columns: [
       {
         accessorFn: (_, index) => (
@@ -117,14 +116,14 @@ const useMainSingleRelations = () => {
     setSorting,
     columnFilters,
     globalFilter,
-    isLoading,
+    isLoading: false,
     pagination,
-    isError,
-    isFetching,
+    isError: false,
+    isFetching: false,
     sorting,
     columnPinning,
     setColumnPinning,
-    refetch,
+    refetch: false,
     handleDeleteRow,
     handlePaginationChange,
     dispatch,
