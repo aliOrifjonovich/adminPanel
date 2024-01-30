@@ -3,7 +3,6 @@ import React, { useRef, useState } from "react";
 import styles from "./UploadImage.module.scss";
 import SingleFileUpload from "./SingleFileUpload";
 import Compressor from "compressorjs";
-import { UseUpload } from "services/upload.service";
 import { CircularProgress } from "@mui/material";
 import { ClearImgIcon, ImageAddIcon } from "helpers/Icons/Icons";
 import { useWatch } from "react-hook-form";
@@ -14,13 +13,6 @@ const UploadImage = ({ control, errors, name, setValue }) => {
   const uploadRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
-  const { mutate } = UseUpload({
-    onSuccess: (res) => {
-      setLoading(false);
-      setValue(name, res.filename);
-    },
-  });
-
   const handleImage = (e) => {
     setLoading(true);
     const file = e.target.files[0];
@@ -30,7 +22,6 @@ const UploadImage = ({ control, errors, name, setValue }) => {
         success(result) {
           const data = new FormData();
           data.append("file", result);
-          mutate(data);
         },
       });
     } else {
