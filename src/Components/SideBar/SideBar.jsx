@@ -9,18 +9,10 @@ import { Button, Tooltip } from "@mui/material";
 import Zoom from "@mui/material/Zoom";
 import {
   SettingsApplicationsRounded,
-  AppRegistration,
-  ViewCarousel,
-  Category,
-  ProductionQuantityLimits,
-  PhotoSizeSelectSmall,
-  School,
   Logout,
-  AddPhotoAlternate,
   Apps,
   VisibilityOff,
   RemoveRedEye,
-  Grading,
 } from "@mui/icons-material";
 import { Container, Draggable } from "react-smooth-dnd";
 import WCheckbox from "Components/Form/WCheckbox/WCheckbox";
@@ -31,46 +23,6 @@ const menuData = [
     name: "Users",
     icon: <UserIcon sx={{ color: "#fff" }} />,
     eventKey: "user",
-  },
-  {
-    name: "Application",
-    icon: <AppRegistration sx={{ color: "#fff" }} />,
-    eventKey: "application",
-  },
-  {
-    name: "Banner",
-    icon: <ViewCarousel sx={{ color: "#fff" }} />,
-    eventKey: "banner",
-  },
-  {
-    name: "Category",
-    icon: <Category sx={{ color: "#fff" }} />,
-    eventKey: "category",
-  },
-  {
-    name: "Product",
-    icon: <ProductionQuantityLimits sx={{ color: "#fff" }} />,
-    eventKey: "product",
-  },
-  {
-    name: "Sizes",
-    icon: <PhotoSizeSelectSmall sx={{ color: "#fff" }} />,
-    eventKey: "size",
-  },
-  {
-    name: "University",
-    icon: <School sx={{ color: "#fff" }} />,
-    eventKey: "university",
-  },
-  {
-    name: "Images",
-    icon: <AddPhotoAlternate sx={{ color: "#fff" }} />,
-    eventKey: "product_image",
-  },
-  {
-    name: "Order",
-    icon: <Grading sx={{ color: "#fff" }} />,
-    eventKey: "order",
   },
 ];
 

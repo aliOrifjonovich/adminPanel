@@ -4,7 +4,6 @@ import SideNav from "@trendmicro/react-sidenav";
 import MainButton from "Components/MainButton/MainButton";
 import useMainSingleBase from "./useMainSingleBase";
 import BigLoading from "Components/Loading/BigLoading";
-import RelationsSingle from "Components/RelationsSingle/RelationsSingle";
 
 const MainSingleBase = () => {
   const {
@@ -13,13 +12,10 @@ const MainSingleBase = () => {
     tab_name,
     handleSubmit,
     onSubmit,
-    control,
-    errors,
     id,
     inputs,
     navigate,
     handleDeleteSingle,
-    relations,
     isLoading,
   } = useMainSingleBase();
 
@@ -44,20 +40,7 @@ const MainSingleBase = () => {
           className={styles.base__body__content}
         >
           <div className={styles.base__body__content__inputs}>
-            {isLoading ? (
-              <BigLoading />
-            ) : (
-              <>
-                {relations.map((elem) => (
-                  <RelationsSingle
-                    elem={elem}
-                    control={control}
-                    errors={errors}
-                  />
-                ))}
-                {inputs()}
-              </>
-            )}
+            {isLoading ? <BigLoading /> : <>{inputs()}</>}
           </div>
 
           <div className={styles.base__body__content__buttons}>

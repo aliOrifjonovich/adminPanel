@@ -21,7 +21,7 @@ export const requestUnionAuth = axios.create({
 });
 
 const errorHandler = (error) => {
-  store.dispatch(showAlert(error?.response?.data?.message, "error"));
+  store.dispatch(showAlert(error?.response?.data?.error?.message, "error"));
   return Promise.reject(error.response);
 };
 

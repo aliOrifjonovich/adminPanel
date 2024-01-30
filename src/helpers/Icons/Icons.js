@@ -59,7 +59,7 @@ export const SearchIcon = () => (
 export const ShowPasswordIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 1024 1024"
+    enableBackground="new 0 0 1024 1024"
     width="24"
     height="24"
     viewBox="0 0 1024 1024"
